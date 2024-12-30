@@ -5,6 +5,7 @@
 #ifndef LED_H
 #define LED_H
 
+#include "gd32e23x_it.h"
 #include "gd32e23x.h"
 #include "board_config.h"
 
