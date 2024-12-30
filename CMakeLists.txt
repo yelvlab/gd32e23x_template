@@ -3,6 +3,20 @@ include(cmake/toolchain.cmake)
 
 project(gd32e23x_template)
 
+set(VERSION_MAJOR 0)
+set(VERSION_MINOR 0)
+set(VERSION_PATCH 1)
+set(VERSION "V${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
+string(TIMESTAMP CURRENT_DATE "%Y-%m-%d")
+
+# Options 1
+set(OPT1 "")
+#set(OPT1 "NONE")
+
+# Options 2
+set(OPT2 "")
+#set(OPT2 "NONE")
+
 enable_language(C)
 enable_language(CXX)
 enable_language(ASM)

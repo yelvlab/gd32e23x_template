@@ -28,8 +28,8 @@ int main(void)
     while(1){
         printf("hello world!\r\n");
         delay_ms(500);
-        watchdog_reload();
 
+        watchdog_reload();
     }
 }
 
