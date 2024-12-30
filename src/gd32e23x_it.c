@@ -35,6 +35,8 @@ OF SUCH DAMAGE.
 #include "gd32e23x_it.h"
 #include "main.h"
 #include "systick.h"
+#include "rs485.h"
+#include "led.h"
 
 /*!
     \brief      this function handles NMI exception
@@ -42,10 +44,9 @@ OF SUCH DAMAGE.
     \param[out] none
     \retval     none
 */
-void NMI_Handler(void)
-{
+void NMI_Handler(void) {
     /* if NMI exception occurs, go to infinite loop */
-    while(1) {
+    while (1) {
     }
 }
 
@@ -55,10 +56,9 @@ void NMI_Handler(void)
     \param[out] none
     \retval     none
 */
-void HardFault_Handler(void)
-{
+void HardFault_Handler(void) {
     /* if Hard Fault exception occurs, go to infinite loop */
-    while(1) {
+    while (1) {
     }
 }
 
@@ -68,10 +68,9 @@ void HardFault_Handler(void)
     \param[out] none
     \retval     none
 */
-void SVC_Handler(void)
-{
+void SVC_Handler(void) {
     /* if SVC exception occurs, go to infinite loop */
-    while(1) {
+    while (1) {
     }
 }
 
@@ -81,10 +80,9 @@ void SVC_Handler(void)
     \param[out] none
     \retval     none
 */
-void PendSV_Handler(void)
-{
+void PendSV_Handler(void) {
     /* if PendSV exception occurs, go to infinite loop */
-    while(1) {
+    while (1) {
     }
 }
 
@@ -94,25 +92,25 @@ void PendSV_Handler(void)
     \param[out] none
     \retval     none
 */
-void SysTick_Handler(void)
-{
+void SysTick_Handler(void) {
 }
 
-void TIMER13_IRQHandler(void)
-{
-    if (timer_interrupt_flag_get(TIMER13, TIMER_INT_FLAG_UP) == SET)
-    {
-        timer_interrupt_flag_clear(TIMER13, TIMER_INT_FLAG_UP);
+/**
+  * @brief  This function handles TIMER5 interrupt request.
+  * @param[in]  none
+  * @param[out] none
+  * @retval None
+  */
+void TIMER16_IRQHandler(void) {
+    if (timer_interrupt_flag_get(LED_BLINK_TIMER, TIMER_INT_FLAG_UP) == SET) {
+        timer_interrupt_flag_clear(LED_BLINK_TIMER, TIMER_INT_FLAG_UP);
         static uint8_t led_status = 0;
-        if (led_status)
-        {
-            //! turn on led & reconfig timer13 period to 19000(1900ms)
-            gpio_bit_write(GPIOB, GPIO_PIN_1, RESET);
-            timer_autoreload_value_config(TIMER13, 19200);
+        if (led_status) {
+            gpio_bit_write(LED_PORT, LED_PIN, RESET);
+            timer_autoreload_value_config(LED_BLINK_TIMER, 19200);
         } else {
-            //! turn off led & reconfig timer13 period to 1000(100ms)
-            gpio_bit_write(GPIOB, GPIO_PIN_1, SET);
-            timer_autoreload_value_config(TIMER13, 800);
+            gpio_bit_write(LED_PORT, LED_PIN, SET);
+            timer_autoreload_value_config(LED_BLINK_TIMER, 800);
         }
         led_status = !led_status;
     }
