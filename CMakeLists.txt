@@ -11,11 +11,11 @@ string(TIMESTAMP CURRENT_DATE "%Y-%m-%d")
 
 # Options 1
 set(OPT1 "")
-#set(OPT1 "_NONE")
+#set(OPT1 "_[SW_IIC]")
 
 # Options 2
 set(OPT2 "")
-#set(OPT2 "_NONE")
+#set(OPT2 "_[NO_LED]")
 
 enable_language(C)
 enable_language(CXX)

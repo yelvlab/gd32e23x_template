@@ -1,6 +1,24 @@
 # gd32e23x_template
-本项目为GD32E230Fx系列的基于Clion的CMake开发的工程模板。本人暂未入门，强行上强度，放弃keil，拥抱开源。遂尝试使用arm-none-eabi-gcc进行开发。
+本项目为`GD32E230Fx`系列的基于Clion的CMake开发的工程模板。本人暂未入门，强行上强度，放弃keil，拥抱开源。遂尝试使用arm-none-eabi-gcc进行开发。
 有幸寻得[@mo10 ](https://github.com/mo10)大佬的帮助，本项目的基础目录架构与CMakeLists.txt与toolchain.cmake均为大佬提供。
+
+## 关于本项目
+本项目默认的芯片型号为`GD32E230F4`，但是可以根据需要修改为其他型号，具体修改方法请参考下方`关于链接脚本`的说明。
+### 版本号
+默认版本号为`0.0.1`，在`CMakeLists.txt`中修改`PROJECT_VERSION`即可。
+### 项目名称
+默认项目名称为`gd32e23x_template`，在`CMakeLists.txt`中修改`PROJECT_NAME`即可。请先修改项目名称再配置编译环境。
+### 软件IIC与硬件IIC
+本项目中提供了软件IIC与硬件IIC的驱动，但是默认使用硬件IIC，如果需要使用软件IIC，请在`board_config.h`中取消注释`// #define SOFTWARE_IIC`(line 8)。
+### 编译选项
+本项目预留了两个编译选项，`OPT1`与`OPT2`，默认均为空，请根据需要自行修改，例如`OPT1`为`_[HW_IIC]`，`OPT2`为`_[NO_LED]`。
+`OPT1`与`OPT2`均在`CMakeLists.txt`中可修改。
+### 关于编译日期
+本项目在`CMakeLists.txt`中添加了编译日期。
+
+### 关于led
+本项目默认开启了LED闪烁，并使用TIMER16进行定时。
+
 
 ## 关于C标准库的printf的重写
 在Keil开发中，ARMClang有自己的microLIB，所以直接调用，然后重写fputc函数即可，但在gcc中需要重写`_write`函数，本项目模板中已经在`main.c`中完成重写。
