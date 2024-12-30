@@ -6,6 +6,6 @@
 #define PERIPHERAL_H
 
 void usart_config(void);
-void led_blink_config(void);
+
 
 #endif //PERIPHERAL_H

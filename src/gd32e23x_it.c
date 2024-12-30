@@ -35,6 +35,7 @@ OF SUCH DAMAGE.
 #include "gd32e23x_it.h"
 #include "main.h"
 #include "systick.h"
+#include "board_config.h"
 
 /*!
     \brief      this function handles NMI exception
@@ -98,21 +99,21 @@ void SysTick_Handler(void)
 {
 }
 
-void TIMER13_IRQHandler(void)
+void TIMER16_IRQHandler(void)
 {
-    if (timer_interrupt_flag_get(TIMER13, TIMER_INT_FLAG_UP) == SET)
+    if (timer_interrupt_flag_get(LED_BLINK_TIMER, TIMER_INT_FLAG_UP) == SET)
     {
-        timer_interrupt_flag_clear(TIMER13, TIMER_INT_FLAG_UP);
+        timer_interrupt_flag_clear(LED_BLINK_TIMER, TIMER_INT_FLAG_UP);
         static uint8_t led_status = 0;
         if (led_status)
         {
             //! turn on led & reconfig timer13 period to 19000(1900ms)
-            gpio_bit_write(GPIOB, GPIO_PIN_1, RESET);
-            timer_autoreload_value_config(TIMER13, 19200);
+            gpio_bit_write(LED_PORT, LED_PIN, RESET);
+            timer_autoreload_value_config(LED_BLINK_TIMER, 19200);
         } else {
             //! turn off led & reconfig timer13 period to 1000(100ms)
-            gpio_bit_write(GPIOB, GPIO_PIN_1, SET);
-            timer_autoreload_value_config(TIMER13, 800);
+            gpio_bit_write(LED_PORT, LED_PIN, SET);
+            timer_autoreload_value_config(LED_BLINK_TIMER, 800);
         }
         led_status = !led_status;
     }
