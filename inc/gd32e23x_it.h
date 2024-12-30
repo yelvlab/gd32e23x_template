@@ -36,6 +36,9 @@ OF SUCH DAMAGE.
 #define GD32E23X_IT_H
 
 #include "gd32e23x.h"
+#include "main.h"
+#include "systick.h"
+#include "board_config.h"
 
 /* function declarations */
 /* this function handles NMI exception */
@@ -48,5 +51,7 @@ void SVC_Handler(void);
 void PendSV_Handler(void);
 /* this function handles SysTick exception */
 void SysTick_Handler(void);
+
+void TIMER16_IRQHandler(void);
 
 #endif /* GD32E23X_IT_H */

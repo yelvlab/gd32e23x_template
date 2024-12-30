@@ -21,13 +21,15 @@
 
 /******************************************************************************/
 
-#define RS485_RCU            RCU_USART0
-#define RS485_GPIO_RCU       RCU_GPIOA
-#define RS485_GPIO_PORT      GPIOA
-#define RS485_TX_PIN         GPIO_PIN_2
-#define RS485_RX_PIN         GPIO_PIN_3
-#define RS485_PHY            USART0
-#define RS485_BAUDRATE       115200U
+#define USART_RCU            RCU_USART0
+#define USART_GPIO_RCU       RCU_GPIOA
+#define USART_GPIO_PORT      GPIOA
+#define USART_GPIO_AF        GPIO_AF_1
+#define USART_TX_PIN         GPIO_PIN_2
+#define USART_RX_PIN         GPIO_PIN_3
+#define USART_PHY            USART0
+#define USART_PHY_BAUDRATE   115200U
+#define RS485_EN_PORT        GPIOA
 #define RS485_EN_PIN         GPIO_PIN_1
 
 /******************************************************************************/

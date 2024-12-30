@@ -33,9 +33,6 @@ OF SUCH DAMAGE.
 */
 
 #include "gd32e23x_it.h"
-#include "main.h"
-#include "systick.h"
-#include "board_config.h"
 
 /*!
     \brief      this function handles NMI exception
@@ -99,6 +96,12 @@ void SysTick_Handler(void)
 {
 }
 
+/*!
+    \brief      this function handles TIMER16 interrupt request
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
 void TIMER16_IRQHandler(void)
 {
     if (timer_interrupt_flag_get(LED_BLINK_TIMER, TIMER_INT_FLAG_UP) == SET)

@@ -35,4 +35,12 @@ OF SUCH DAMAGE.
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
+#include "gd32e23x.h"
+#include "systick.h"
+#include "gd32e23x_libopt.h"
+#include "led.h"
+#include "usart.h"
+#include "board_config.h"
+
 #endif /* MAIN_H */
