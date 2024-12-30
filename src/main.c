@@ -20,13 +20,16 @@ int main(void)
     rs485_config();
     /* configure LED */
     led_blink_config();
+    /* configure FWDGT */
+    watchdog_init();
 
-    delay_ms(5000);
     printf("system start!\r\n");
 
     while(1){
-    printf("hello world!\r\n");
-    delay_ms(5000);
+        printf("hello world!\r\n");
+        delay_ms(500);
+        watchdog_reload();
+
     }
 }
 

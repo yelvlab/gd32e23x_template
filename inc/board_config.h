@@ -5,14 +5,15 @@
 #ifndef BOARD_CONFIG_H
 #define BOARD_CONFIG_H
 
-#define SOFTWARE_IIC
+// #define SOFTWARE_IIC
 
 // #define DEBUG_VERBOES
 
 /******************************************************************************/
 
-#define RCU_GPIO_I2C         RCU_GPIOF
-#define RCU_I2C              RCU_I2C0
+#define I2C_GPIO_RCU         RCU_GPIOF
+#define I2C_RCU              RCU_I2C0
+#define I2C_PHY              I2C0
 #define I2C_SCL_PORT         GPIOF
 #define I2C_SCL_PIN          GPIO_PIN_1
 #define I2C_SDA_PORT         GPIOF
@@ -21,8 +22,8 @@
 
 /******************************************************************************/
 
-#define USART_RCU            RCU_USART0
 #define USART_GPIO_RCU       RCU_GPIOA
+#define USART_RCU            RCU_USART0
 #define USART_GPIO_PORT      GPIOA
 #define USART_GPIO_AF        GPIO_AF_1
 #define USART_TX_PIN         GPIO_PIN_2

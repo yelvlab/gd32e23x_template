@@ -41,6 +41,13 @@ OF SUCH DAMAGE.
 #include "gd32e23x_libopt.h"
 #include "led.h"
 #include "usart.h"
+#include "fwdgt.h"
 #include "board_config.h"
+
+#ifdef SOFTWARE_IIC
+#include "soft_i2c.h"
+#else
+#include "i2c.h"
+#endif
 
 #endif /* MAIN_H */

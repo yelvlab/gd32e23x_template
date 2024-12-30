@@ -20,6 +20,9 @@ set(TARGET_C_SRC
         ${CMAKE_SOURCE_DIR}/src/systick.c
         ${CMAKE_SOURCE_DIR}/src/led.c
         ${CMAKE_SOURCE_DIR}/src/usart.c
+        ${CMAKE_SOURCE_DIR}/src/soft_i2c.c
+        ${CMAKE_SOURCE_DIR}/src/i2c.c
+        ${CMAKE_SOURCE_DIR}/src/fwdgt.c
 )
 
 add_executable(gd32e23x_template ${TARGET_C_SRC})
