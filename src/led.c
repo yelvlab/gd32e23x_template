@@ -16,7 +16,7 @@ void led_blink_config(void)
 
     gpio_mode_set(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_PIN);
     gpio_output_options_set(LED_PORT, GPIO_OTYPE_OD, GPIO_OSPEED_50MHZ, LED_PIN);
-    gpio_bit_write(LED_PORT, LED_PIN, RESET);
+    gpio_bit_write(LED_PORT, LED_PIN, SET);
 
     rcu_periph_clock_enable(LED_BLINK_TIMER_RCU);
     timer_deinit(LED_BLINK_TIMER);
@@ -32,6 +32,8 @@ void led_blink_config(void)
 
     timer_auto_reload_shadow_enable(LED_BLINK_TIMER);
     timer_interrupt_enable(LED_BLINK_TIMER, TIMER_INT_UP);
-    nvic_irq_enable(LED_BLINK_IRQ, 0);
+
     timer_enable(LED_BLINK_TIMER);
+
+    nvic_irq_enable(LED_BLINK_IRQ, 2);
 }
