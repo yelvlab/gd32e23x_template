@@ -7,7 +7,7 @@
 ### 版本号
 默认版本号为`0.0.1`，在`CMakeLists.txt`中修改`PROJECT_VERSION`即可。
 ### 项目名称
-默认项目名称为`gd32e23x_template`，在`CMakeLists.txt`中修改`PROJECT_NAME`即可。请先修改项目名称再配置编译环境。
+默认项目名称为`gd32e23x_template`，在`CMakeLists.txt`中修改`set(PROJECT_NAME "gd32e23x_template")`即可。请先修改项目名称再配置编译环境。
 ### 软件IIC与硬件IIC
 本项目中提供了软件IIC与硬件IIC的驱动，但是默认使用硬件IIC，如果需要使用软件IIC，请在`board_config.h`中取消注释`// #define SOFTWARE_IIC`(line 8)。
 ### 编译选项

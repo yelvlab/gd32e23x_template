@@ -121,3 +121,12 @@ void TIMER16_IRQHandler(void)
         led_status = !led_status;
     }
 }
+
+/*!
+    \brief      this function handles USART0 interrupt request
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+void USART0_IRQHandler(void) {
+}

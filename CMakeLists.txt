@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.28)
 include(cmake/toolchain.cmake)
 
+set(PROJECT_NAME "gd32e23x_template")
 project(gd32e23x_template)
 
 set(VERSION_MAJOR 0)
@@ -39,11 +40,11 @@ set(TARGET_C_SRC
         ${CMAKE_SOURCE_DIR}/src/fwdgt.c
 )
 
-add_executable(gd32e23x_template ${TARGET_C_SRC})
+add_executable(${PROJECT_NAME} ${TARGET_C_SRC})
 
-target_link_libraries(gd32e23x_template GD32E23X_SDK)
-target_include_directories(gd32e23x_template PUBLIC inc)
+target_link_libraries(${PROJECT_NAME} GD32E23X_SDK)
+target_include_directories(${PROJECT_NAME} PUBLIC inc)
 
 # Generate .bin and .hex
-generate_binary_file(gd32e23x_template)
-generate_hex_file(gd32e23x_template)
+generate_binary_file(${PROJECT_NAME})
+generate_hex_file(${PROJECT_NAME})

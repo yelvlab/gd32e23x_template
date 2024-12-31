@@ -28,6 +28,10 @@ void usart_config(void)
     usart_transmit_config(USART_PHY, USART_TRANSMIT_ENABLE);
 
     usart_enable(USART_PHY);
+
+    nvic_irq_enable(USART0_IRQn, 0);
+    usart_interrupt_enable(USART_PHY, USART_INT_RBNE);
+    usart_interrupt_enable(USART_PHY, USART_INT_IDLE);
 }
 
 /**

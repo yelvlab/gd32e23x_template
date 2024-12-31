@@ -14,6 +14,7 @@
 */
 int main(void)
 {
+    setbuf(stdout, NULL);
     /* configure systick */
     systick_config();
     /* configure USART */
