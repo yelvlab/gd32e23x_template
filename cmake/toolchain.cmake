@@ -91,9 +91,15 @@ set(TARGET_CFLAGS_HARDWARE "-mcpu=cortex-m23 -mfloat-abi=soft -mthumb -mthumb-in
 
 # Conditional flags
 # DEBUG
-set(CMAKE_C_FLAGS_DEBUG     "-DDEBUG=0 -O0 -g")
-set(CMAKE_CXX_FLAGS_DEBUG   "-DDEBUG=0 -O0 -g")
-set(CMAKE_ASM_FLAGS_DEBUG   "-DDEBUG=0 -O0 -g")
+#set(CMAKE_C_FLAGS_DEBUG     "-DDEBUG=0 -O0 -g")
+#set(CMAKE_CXX_FLAGS_DEBUG   "-DDEBUG=0 -O0 -g")
+#set(CMAKE_ASM_FLAGS_DEBUG   "-DDEBUG=0 -O0 -g")
+set(CMAKE_C_FLAGS_DEBUG     "-DDEBUG=0 -O2 -g")
+set(CMAKE_CXX_FLAGS_DEBUG   "-DDEBUG=0 -O2 -g")
+set(CMAKE_ASM_FLAGS_DEBUG   "-DDEBUG=0 -O2 -g")
+#set(CMAKE_C_FLAGS_DEBUG     "-DDEBUG=0 -Os -g")
+#set(CMAKE_CXX_FLAGS_DEBUG   "-DDEBUG=0 -Os -g")
+#set(CMAKE_ASM_FLAGS_DEBUG   "-DDEBUG=0 -Os -g")
 
 # RELEASE
 set(CMAKE_C_FLAGS_RELEASE        "-DNDEBUG -O3") #  -flto
